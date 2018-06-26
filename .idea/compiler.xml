@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="datanode" />
         <module name="eurekeserver" />
         <module name="mdfs" />
         <module name="namenode" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="datanode" target="1.8" />
       <module name="eurekeserver" target="1.8" />
       <module name="mdfs" target="1.5" />
       <module name="namenode" target="1.8" />
