@@ -1,13 +1,17 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 server:
-  port: 8762
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
   application:
     name: namenode
-# 设置文件块大小,单位(B)
-block.default-size=40000
-# 设置默认副本数
-block.default-replicas=2
+block:
+  default-size: 40000
+  default-replicas: 2

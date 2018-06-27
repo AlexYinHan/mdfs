@@ -23,13 +23,13 @@ import com.alex.sa.mdfs.datanode.storage.StorageFileNotFoundException;
 import com.alex.sa.mdfs.datanode.storage.StorageService;
 
 @RestController
-public class FileUploadController {
+public class FileSystemController {
 
     private final StorageService storageService;
     private Map<String, BlockInfo> fileName_fileInfo = new HashMap<>();
 
     @Autowired
-    public FileUploadController(StorageService storageService) {
+    public FileSystemController(StorageService storageService) {
         this.storageService = storageService;
     }
 
