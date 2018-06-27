@@ -1,7 +1,6 @@
 package com.alex.sa.mdfs.namenode;
 
 import com.netflix.appinfo.InstanceInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;
@@ -13,15 +12,10 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.*;
 import java.net.URL;
 import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +32,7 @@ public class NameNodeController {
     private FileTreeManager fileTreeManager = new FileTreeManager();
 
     private static String blockFileDir = "tmp/fileBlocks/";
-    private static String downloadedFildDir = "tmp/downloadedFiles/";
+    private static String downloadedFileDir = "tmp/downloadedFiles/";
 
 
     @GetMapping("/allFiles")
@@ -51,7 +45,7 @@ public class NameNodeController {
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
         try {
             // save downloaded file in a temp path
-            File downloadFile = new File(downloadedFildDir + filename);
+            File downloadFile = new File(downloadedFileDir + filename);
             downloadFile.createNewFile();
             // use FileChannel to get a joint file
             FileChannel downloadFileChannel = new FileOutputStream(downloadFile).getChannel();
@@ -150,6 +144,28 @@ public class NameNodeController {
             return null;
         }
     }
+
+    @DeleteMapping("/{filename:.+}")
+    @ResponseBody
+    public String deleteFile(@PathVariable String filename) {
+        long numBlocks = fileTreeManager.getNumBlocks(filename);
+        for (int blockIndex = 0; blockIndex < numBlocks; blockIndex ++) {
+            List<String> dataNodeURLS = fileBlockManager.getDataNodeURL(filename, blockIndex);
+            String blockedFileName = blockedFileName(filename, blockIndex);
+            for (String dataNodeURL : dataNodeURLS) {
+                String URL = dataNodeURL + "files/" + blockedFileName(filename, blockIndex);
+
+                // send post request
+                RestTemplate rest = new RestTemplate();
+                rest.delete(URL);
+                System.out.println("block " + blockIndex + " to data node at " + URL + " : deleted." );
+            }
+            dataNodeManager.removeBlock(filename, blockIndex);
+            fileBlockManager.removeFileBlock(filename, blockIndex);
+        }
+        fileTreeManager.deleteFile(filename);
+        return "success";
+    }
     /**
      * one data node went offline
      */
@@ -202,7 +218,7 @@ public class NameNodeController {
     public void listen(EurekaServerStartedEvent event) {
         System.err.println("Eureka Server started.");
         new File(blockFileDir).mkdirs();
-        new File(downloadedFildDir).mkdirs();
+        new File(downloadedFileDir).mkdirs();
 
     }
 }

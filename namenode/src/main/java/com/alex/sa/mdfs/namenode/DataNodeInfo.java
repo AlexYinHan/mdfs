@@ -2,15 +2,17 @@ package com.alex.sa.mdfs.namenode;
 
 import javafx.util.Pair;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class DataNodeInfo {
     private String URL;
 
     private boolean valid = true;
 
-    private List<Pair<String, Long>> file_blocks = new LinkedList<>();
+    private Set<Pair<String, Long>> file_blocks = new HashSet<>();
 
     public DataNodeInfo(String URL) {
         this.URL = URL;
@@ -34,4 +36,7 @@ public class DataNodeInfo {
         this.valid = valid;
     }
 
+    public void removeBlock(String fileName, long blockIndex) {
+        file_blocks.remove(new Pair<>(fileName, blockIndex));
+    }
 }

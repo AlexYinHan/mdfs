@@ -35,4 +35,10 @@ public class DataNodeManager {
     public boolean isValid(String dataNodeURL) {
         return URL_dataNodeInfos.get(dataNodeURL).isValid();
     }
+
+    public void removeBlock(String fileName, long blockIndex) {
+        for (String dataNodeURL : URL_dataNodeInfos.keySet()) {
+            URL_dataNodeInfos.get(dataNodeURL).removeBlock(fileName, blockIndex);
+        }
+    }
 }

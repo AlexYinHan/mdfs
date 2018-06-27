@@ -29,4 +29,9 @@ public class FileBlockManager {
     public List<String> getDataNodeURL(String fileName, long blockIndex) {
         return fileBlock_dataNodeURL.get(fileName + "#" + blockIndex);
     }
+
+    public void removeFileBlock(String fileName, long blockIndex) {
+        String fileBlock = fileName + "#" + blockIndex;
+        fileBlock_dataNodeURL.remove(fileBlock);
+    }
 }

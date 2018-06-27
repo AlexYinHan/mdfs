@@ -67,4 +67,28 @@ public class FileTreeManager {
         }
         return node.numBlocks;
     }
+
+    public void deleteFile(String path) {
+        FileTreeNode node = root;
+        String[] dirs = path.split("/");
+        int count = dirs.length;
+        for (int i = 0; i < count - 1; i ++) {
+            FileTreeNode next = null;
+            for (FileTreeNode child : node.children) {
+                if (child.isDir && child.name.equals(dirs)) {
+                    next = child;
+                    break;
+                }
+            }
+            node = next;
+        }
+
+        String fileName = dirs[count - 1];
+        for (FileTreeNode child : node.children) {
+            if (!child.isDir && child.name.equals(fileName)) {
+                node.children.remove(child);
+                break;
+            }
+        }
+    }
 }
