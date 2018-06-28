@@ -27,9 +27,14 @@ public class NameNodeController {
     @Value(value="${block.default-replicas}")
     public int REPLICA_NUM;
 
+    // load-balancer
+    @Value(value="${load-balancer.num-visual-node:}")
+    public int VISUAL_NODE_NUM;
+
     private DataNodeManager dataNodeManager = new DataNodeManager();
     private FileBlockManager fileBlockManager = new FileBlockManager();
     private FileTreeManager fileTreeManager = new FileTreeManager();
+    private ConsistentHashManager consistentHashManager = new ConsistentHashManager(31);
 
     private static String blockFileDir = "tmp/fileBlocks/";
     private static String downloadedFileDir = "tmp/downloadedFiles/";
@@ -124,8 +129,8 @@ public class NameNodeController {
     }
 
     private List<String> getTargetDataNodes(File file) {
-        // TODO: load balance and based on numRepeats
-        return dataNodeManager.getAllDataNodeURL();
+        return consistentHashManager.getTargetDataNodeURLS(file, REPLICA_NUM);
+//        return dataNodeManager.getAllDataNodeURL();
     }
 
     private String blockedFileName(String fileName, long blockIndex) {
@@ -151,7 +156,6 @@ public class NameNodeController {
         long numBlocks = fileTreeManager.getNumBlocks(filename);
         for (int blockIndex = 0; blockIndex < numBlocks; blockIndex ++) {
             List<String> dataNodeURLS = fileBlockManager.getDataNodeURL(filename, blockIndex);
-            String blockedFileName = blockedFileName(filename, blockIndex);
             for (String dataNodeURL : dataNodeURLS) {
                 String URL = dataNodeURL + "files/" + blockedFileName(filename, blockIndex);
 
@@ -166,6 +170,8 @@ public class NameNodeController {
         fileTreeManager.deleteFile(filename);
         return "success";
     }
+
+
     /**
      * one data node went offline
      */
@@ -187,6 +193,7 @@ public class NameNodeController {
         String dataNodeUrl = instanceInfo.getHomePageUrl();
         System.err.println("Find a new data node at " + dataNodeUrl + ".");
         dataNodeManager.addDataNode(dataNodeUrl);
+        consistentHashManager.addDataNode(dataNodeUrl);
         System.err.println("Data node at " + dataNodeUrl + " registered.");
     }
 
@@ -219,6 +226,6 @@ public class NameNodeController {
         System.err.println("Eureka Server started.");
         new File(blockFileDir).mkdirs();
         new File(downloadedFileDir).mkdirs();
-
+        consistentHashManager.setNumVisualNodes(VISUAL_NODE_NUM);
     }
 }

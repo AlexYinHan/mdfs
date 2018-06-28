@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1613f2b1-7a3c-44de-bf55-cc810d749ee7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/upload-dir/block_0_picture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/upload-dir/block_1_picture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/upload-dir/block_2_picture.jpg" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_0_151220151_殷瀚_作业3.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_0_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_0_picture.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_1_151220151_殷瀚_作业3.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_1_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_1_picture.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_2_151220151_殷瀚_作业3.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_2_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_2_picture.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_3_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_4_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_5_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_6_MPLab1.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/ConsistentHashManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/fileBlocks/block_0_Trouble Shooting.md" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datanode/upload-dir/block_0_README.md" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datanode/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/datanode/src/main/resources/application.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java" afterPath="$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java" afterPath="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/namenode/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/namenode/src/main/resources/application.yml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,21 +37,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="NamenodeApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NamenodeApplication.java">
+      <file leaf-file-name="NameNodeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="299">
+              <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NameNodeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java">
+      <file leaf-file-name="ConsistentHashManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/ConsistentHashManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2190">
-              <caret line="162" column="37" lean-forward="false" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+            <state relative-caret-position="360">
+              <caret line="66" column="31" lean-forward="false" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,58 +71,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datanode/pom.xml">
+      <file leaf-file-name="DatanodeApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/DatanodeApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1800">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+              <folding>
+                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#603#604#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileSystemController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="59" column="31" lean-forward="true" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorageService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/StorageService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileTreeManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileTreeManager.java">
+      <file leaf-file-name="FileSystemStorageService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/FileSystemStorageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="88" column="44" lean-forward="false" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileSystemController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataNodeInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/DataNodeInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#469#470#0" expanded="true" />
-                <element signature="e#534#535#0" expanded="true" />
-                <element signature="e#589#590#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
-                <element signature="e#674#675#0" expanded="true" />
-                <element signature="e#702#703#0" expanded="true" />
-                <element signature="e#745#746#0" expanded="true" />
-                <element signature="e#779#780#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#912#913#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="454">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,12 +119,10 @@
       <file leaf-file-name="DataNodeManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/DataNodeManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="341">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
-                <element signature="e#1025#1026#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,21 +131,9 @@
       <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/namenode/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="401">
+              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileBlockManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileBlockManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -180,14 +172,18 @@
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileSystemController.java" />
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/ServiceFindEventController.java" />
         <option value="$PROJECT_DIR$/eurekeserver/src/main/java/com/alex/sa/mdfs/eurekeserver/EurekaController.java" />
-        <option value="$PROJECT_DIR$/namenode/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NamenodeApplication.java" />
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/DataNodeInfo.java" />
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/DataNodeManager.java" />
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileTreeManager.java" />
         <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileBlockManager.java" />
-        <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java" />
         <option value="$PROJECT_DIR$/datanode/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileHashUtil.java" />
+        <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileMD5Util.java" />
+        <option value="$PROJECT_DIR$/namenode/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java" />
+        <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java" />
+        <option value="$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/ConsistentHashManager.java" />
       </list>
     </option>
   </component>
@@ -224,6 +220,9 @@
     <option name="y" value="6" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -292,13 +291,17 @@
               <item name="datanode" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="datanode" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mdfs" type="b2602c69:ProjectViewProjectNode" />
               <item name="mdfs" type="462c0819:PsiDirectoryNode" />
               <item name="datanode" type="462c0819:PsiDirectoryNode" />
-              <item name="upload-dir" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mdfs" type="b2602c69:ProjectViewProjectNode" />
@@ -492,12 +495,12 @@
       <updated>1530004651842</updated>
       <workItem from="1530004655153" duration="26418000" />
       <workItem from="1530092979308" duration="8584000" />
-      <workItem from="1530189543942" duration="2644000" />
+      <workItem from="1530189543942" duration="19988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37646000" />
+    <option name="totallyTimeSpent" value="54990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -515,7 +518,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33143508" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2881549" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -523,10 +526,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31435078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2118451" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22103004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306867" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -548,12 +551,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java</url>
-          <line>60</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="90" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -575,7 +578,7 @@
         <state relative-caret-position="2610">
           <caret line="88" column="44" lean-forward="false" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,16 +589,16 @@
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="false" />
+            <element signature="e#534#535#0" expanded="false" />
+            <element signature="e#589#590#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#674#675#0" expanded="false" />
+            <element signature="e#702#703#0" expanded="false" />
+            <element signature="e#745#746#0" expanded="false" />
+            <element signature="e#779#780#0" expanded="false" />
+            <element signature="e#844#845#0" expanded="false" />
+            <element signature="e#912#913#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -624,8 +627,8 @@
           <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#603#604#0" expanded="false" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -636,8 +639,6 @@
           <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -647,7 +648,7 @@
         <state relative-caret-position="810">
           <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -683,7 +684,7 @@
         <state relative-caret-position="1980">
           <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -694,16 +695,16 @@
           <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="false" />
+            <element signature="e#534#535#0" expanded="false" />
+            <element signature="e#589#590#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#674#675#0" expanded="false" />
+            <element signature="e#702#703#0" expanded="false" />
+            <element signature="e#745#746#0" expanded="false" />
+            <element signature="e#779#780#0" expanded="false" />
+            <element signature="e#844#845#0" expanded="false" />
+            <element signature="e#912#913#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -731,8 +732,8 @@
           <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#603#604#0" expanded="false" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -743,8 +744,6 @@
           <caret line="31" column="72" lean-forward="false" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,7 +753,7 @@
         <state relative-caret-position="450">
           <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -806,24 +805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/StorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/StorageProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/FileSystemStorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -865,18 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/DatanodeApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#603#604#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/JDK/javafx-src.zip!/javafx/util/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -890,7 +863,7 @@
         <state relative-caret-position="2610">
           <caret line="88" column="44" lean-forward="false" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -900,19 +873,7 @@
         <state relative-caret-position="810">
           <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/DataNodeManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -923,25 +884,17 @@
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="false" />
+            <element signature="e#534#535#0" expanded="false" />
+            <element signature="e#589#590#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#674#675#0" expanded="false" />
+            <element signature="e#702#703#0" expanded="false" />
+            <element signature="e#745#746#0" expanded="false" />
+            <element signature="e#779#780#0" expanded="false" />
+            <element signature="e#844#845#0" expanded="false" />
+            <element signature="e#912#913#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datanode/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,10 +914,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java">
+    <entry file="file://$PROJECT_DIR$/datanode/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2190">
-          <caret line="162" column="37" lean-forward="false" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+        <state relative-caret-position="270">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/FileMD5Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1135">
+          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/DataNodeManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -973,16 +942,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/namenode/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="401">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/DatanodeApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding>
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/StorageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/NameNodeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/FileSystemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="299">
+          <caret line="59" column="31" lean-forward="true" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datanode/src/main/java/com/alex/sa/mdfs/datanode/storage/FileSystemStorageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/namenode/src/main/java/com/alex/sa/mdfs/namenode/ConsistentHashManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="66" column="31" lean-forward="false" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -55,6 +55,14 @@ public class FileSystemController {
         return "success";
     }
 
+    @DeleteMapping("/allFiles")
+    @ResponseBody
+    public String deleteAll() {
+        storageService.deleteAll();
+        fileName_fileInfo.clear();
+        return "success";
+    }
+
     @PostMapping("/")
     public String handleFileUpload(@RequestParam("file") MultipartFile file) {
         // upload to file system
