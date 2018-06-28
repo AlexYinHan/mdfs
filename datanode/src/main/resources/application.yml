@@ -1,9 +1,11 @@
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-server:
-  port: 8762
-spring:
-  application:
-    name: datanode
+#server:
+#  port: 8762
+#spring:
+#  application:
+#    name: datanode
