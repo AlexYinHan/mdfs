@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="datanode" />
-        <module name="eurekeserver" />
         <module name="mdfs" />
         <module name="namenode" />
       </profile>

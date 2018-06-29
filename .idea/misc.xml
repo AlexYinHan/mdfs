@@ -5,7 +5,6 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/namenode/pom.xml" />
-        <option value="$PROJECT_DIR$/eurekeserver/pom.xml" />
         <option value="$PROJECT_DIR$/datanode/pom.xml" />
       </list>
     </option>
