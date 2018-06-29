@@ -41,4 +41,12 @@ public class DataNodeManager {
             URL_dataNodeInfos.get(dataNodeURL).removeBlock(fileName, blockIndex);
         }
     }
+
+    public boolean contain(String URL) {
+        return URL_dataNodeInfos.containsKey(URL);
+    }
+
+    public List<Pair<String, Long>> getFileBlocks(String URL) {
+        return URL_dataNodeInfos.get(URL).getFileBlocks();
+    }
 }

@@ -4,17 +4,14 @@ import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ConsistentHashManager {
 
     private int numVisualNodes;
     private int visualNodeHashcodeStep;
     private Set<String> dataNodeURLS = new HashSet<>();
-    private List<Pair<Integer, String>> hashcode_dataNodeIndex = new LinkedList<>();
+    private List<Pair<Integer, String>> hashcode_dataNodeURL = new LinkedList<>();
     private static final int hashCodeRange = Integer.MAX_VALUE;
 
     // load-balancer
@@ -36,6 +33,11 @@ public class ConsistentHashManager {
         for (int visualNodeIndex = 0; visualNodeIndex < numVisualNodes + 1; visualNodeIndex ++) {
             addDataNode(stringHashCode( visualNodeIndex + "#" + URL), URL);
         }
+    }
+
+    public void removeDataNode(String URL) {
+        dataNodeURLS.remove(URL);
+        hashcode_dataNodeURL.removeIf(t -> t.getValue().equals(URL));
     }
 
     private int stringHashCode(String URL) {
@@ -70,8 +72,8 @@ public class ConsistentHashManager {
     private synchronized void addDataNode(int hashCode, String dataNodeURL) {
         int hashCodeIndex = 0;
         // find the index for hashCode to insert
-        for (; hashCodeIndex < hashcode_dataNodeIndex.size(); hashCodeIndex ++) {
-            Pair<Integer, String> node = hashcode_dataNodeIndex.get(hashCodeIndex);
+        for (; hashCodeIndex < hashcode_dataNodeURL.size(); hashCodeIndex ++) {
+            Pair<Integer, String> node = hashcode_dataNodeURL.get(hashCodeIndex);
             if (node.getKey() == hashCode) {
                 hashCode ++;
             }
@@ -80,11 +82,11 @@ public class ConsistentHashManager {
             }
         }
 
-        if (hashCodeIndex == hashcode_dataNodeIndex.size()) {
+        if (hashCodeIndex == hashcode_dataNodeURL.size()) {
             // insert to the tail
-            hashcode_dataNodeIndex.add(new Pair<>(hashCode, dataNodeURL));
+            hashcode_dataNodeURL.add(new Pair<>(hashCode, dataNodeURL));
         } else {
-            hashcode_dataNodeIndex.add(hashCodeIndex, new Pair<>(hashCode, dataNodeURL));
+            hashcode_dataNodeURL.add(hashCodeIndex, new Pair<>(hashCode, dataNodeURL));
         }
     }
     public List<String> getTargetDataNodeURLS(File file, int numReplicas) {
@@ -94,22 +96,34 @@ public class ConsistentHashManager {
         }
 
         int hashcode = fileHash(file);
-        int replicaHashcodeStep = (hashCodeRange / numReplicas) * 2;
-        for (int replicaIndex = 0; replicaIndex < numReplicas; replicaIndex ++) {
-            String dataNodeURL = null;
-            for (Pair<Integer, String> node : hashcode_dataNodeIndex) {
-                if (node.getKey() >= hashcode) {
-                    dataNodeURL = node.getValue();
-                    break;
-                }
+        String dataNodeURL = null;
+        int dataNodeURLIndex = 0;
+        for (Pair<Integer, String> node : hashcode_dataNodeURL) {
+            if (node.getKey() >= hashcode) {
+                dataNodeURL = node.getValue();
+                dataNodeURLIndex = hashcode_dataNodeURL.indexOf(node);
+                break;
             }
-            if (dataNodeURL == null) {
-                dataNodeURL = hashcode_dataNodeIndex.get(0).getValue();
-            }
-            targetDataNodeURLS.add(dataNodeURL);
-
-            hashcode += replicaHashcodeStep;
         }
+        if (dataNodeURL == null) {
+            dataNodeURL = hashcode_dataNodeURL.get(0).getValue();
+        }
+        targetDataNodeURLS.add(dataNodeURL);
+
+        // allocate data nodes for replicas
+        // simply find the next (numReplicas - 1) nodes
+        dataNodeURLIndex = (dataNodeURLIndex + 1) % hashcode_dataNodeURL.size();
+        for (int replicaIndex = 0; replicaIndex < numReplicas - 1; replicaIndex ++) {
+            if (replicaIndex + 2 > dataNodeURLS.size()) {
+                // not enough data nodes
+                break;
+            }
+            while (targetDataNodeURLS.contains(hashcode_dataNodeURL.get(dataNodeURLIndex).getValue())) {
+                dataNodeURLIndex = (dataNodeURLIndex + 1) % hashcode_dataNodeURL.size();
+            }
+            targetDataNodeURLS.add(hashcode_dataNodeURL.get(dataNodeURLIndex).getValue());
+        }
+
         return targetDataNodeURLS;
     }
 

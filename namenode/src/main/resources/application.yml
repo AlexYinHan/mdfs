@@ -14,6 +14,6 @@ spring:
     name: namenode
 block:
   default-size: 40000
-  default-replicas: 1
+  default-replicas: 2
 load-balancer:
   num-visual-node: 31

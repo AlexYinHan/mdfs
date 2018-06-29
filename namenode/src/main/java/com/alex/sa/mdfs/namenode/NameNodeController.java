@@ -1,6 +1,7 @@
 package com.alex.sa.mdfs.namenode;
 
 import com.netflix.appinfo.InstanceInfo;
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;
@@ -12,6 +13,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.ls.LSInput;
 
 import java.io.*;
 import java.net.URL;
@@ -91,6 +93,10 @@ public class NameNodeController {
     public String handleFileUpload(@RequestParam("file") MultipartFile file) {
         try {
             String fileName = file.getOriginalFilename();
+            if (fileTreeManager.contain(fileName)) {
+                System.err.println("File already exists.");
+                return "File already exists.";
+            }
             // divide into blocks
             long numBytes = file.getSize();
             long numBlocks = numBytes / BLOCK_SIZE + ((numBytes) % this.BLOCK_SIZE == 0 ? 0 : 1);
@@ -180,6 +186,7 @@ public class NameNodeController {
         String dataNodeUrl = "http://" + event.getServerId() + "/";
         System.err.println("Data node at \"" + dataNodeUrl + "\" went off line.");
         dataNodeManager.removeDataNode(dataNodeUrl);
+        consistentHashManager.removeDataNode(dataNodeUrl);
         System.err.println(event.getServerId() + "\t" + event.getAppName() + " removed");
     }
 
@@ -192,9 +199,23 @@ public class NameNodeController {
         InstanceInfo instanceInfo = event.getInstanceInfo();
         String dataNodeUrl = instanceInfo.getHomePageUrl();
         System.err.println("Find a new data node at " + dataNodeUrl + ".");
-        dataNodeManager.addDataNode(dataNodeUrl);
-        consistentHashManager.addDataNode(dataNodeUrl);
-        System.err.println("Data node at " + dataNodeUrl + " registered.");
+        if (dataNodeManager.contain(dataNodeUrl)) {
+            System.err.println("Data node at " + dataNodeUrl + " already exists.");
+        } else {
+            dataNodeManager.addDataNode(dataNodeUrl);
+            consistentHashManager.addDataNode(dataNodeUrl);
+            System.err.println("Data node at " + dataNodeUrl + " registered.");
+        }
+    }
+
+    private void blockTransfer(String URL) {
+        List<Pair<String, Long>> file_blocks = dataNodeManager.getFileBlocks(URL);
+        for (Pair<String, Long> file_block : file_blocks) {
+            List<String> URLs = fileBlockManager.getDataNodeURL(file_block.getKey(), file_block.getValue());
+//            String dataNodeURL = URLs.get(0);
+//            String resourceURL = dataNodeURL + "files/" + blockedFileName;
+//            UrlResource urlResource = new UrlResource(new URL(resourceURL));
+        }
     }
 
     /**
