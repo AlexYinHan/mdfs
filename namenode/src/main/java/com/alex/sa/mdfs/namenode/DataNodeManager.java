@@ -49,4 +49,9 @@ public class DataNodeManager {
     public List<Pair<String, Long>> getFileBlocks(String URL) {
         return URL_dataNodeInfos.get(URL).getFileBlocks();
     }
+
+    public void transferBlock(String fileName, long blockIndex, String oldURL, String newURL) {
+        URL_dataNodeInfos.get(oldURL).removeBlock(fileName, blockIndex);
+        URL_dataNodeInfos.get(newURL).addBlock(fileName, blockIndex);
+    }
 }

@@ -11,7 +11,7 @@ public class FileBlockManager {
     private Map<String, List<String>> fileBlock_dataNodeURL = new HashMap<>();
 
     public void addFileBlock(String dataNodeURL, String fileName, long blockIndex) {
-        String fileBlock = fileName + "#" + blockIndex;
+        String fileBlock = getBlockName(fileName, blockIndex);
         List<String> URLS = fileBlock_dataNodeURL.get(fileBlock);
         if (URLS == null) {
             URLS = new LinkedList<>();
@@ -27,11 +27,27 @@ public class FileBlockManager {
     }
 
     public List<String> getDataNodeURL(String fileName, long blockIndex) {
-        return fileBlock_dataNodeURL.get(fileName + "#" + blockIndex);
+        return fileBlock_dataNodeURL.get(getBlockName(fileName, blockIndex));
     }
 
     public void removeFileBlock(String fileName, long blockIndex) {
-        String fileBlock = fileName + "#" + blockIndex;
+        String fileBlock = getBlockName(fileName, blockIndex);
         fileBlock_dataNodeURL.remove(fileBlock);
+    }
+
+    public void removeDataNode(String URL) {
+        for (Map.Entry<String, List<String>> e : fileBlock_dataNodeURL.entrySet()) {
+            e.getValue().removeIf(u -> u.equals(URL));
+        }
+    }
+
+    public void transferBlock(String fileName, long blockIndex, String oldURL, String newURL) {
+        List<String> dataNodeURLs = fileBlock_dataNodeURL.get(getBlockName(fileName, blockIndex));
+        dataNodeURLs.remove(oldURL);
+        dataNodeURLs.add(newURL);
+    }
+
+    private String getBlockName(String fileName, long blockIndex) {
+        return fileName + "#" + blockIndex;
     }
 }

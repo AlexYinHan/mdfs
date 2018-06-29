@@ -65,11 +65,17 @@ public class FileSystemController {
 
     @PostMapping("/")
     public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+        String fileName = file.getOriginalFilename();
+        // check if the file already exists
+        if (fileName_fileInfo.keySet().contains(fileName)) {
+            System.err.println("File already exists : " + fileName + " .");
+            return "File already exists";
+        }
+
         // upload to file system
         storageService.store(file);
 
         // record file/block information
-        String fileName = file.getOriginalFilename();
         long fileSize = file.getSize();
         BlockInfo blockInfo = new BlockInfo(fileName, fileSize);
         fileName_fileInfo.put(fileName, blockInfo);
