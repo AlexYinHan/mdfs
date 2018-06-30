@@ -2,21 +2,26 @@ package com.alex.sa.mdfs.namenode;
 
 import com.netflix.appinfo.InstanceInfo;
 import javafx.util.Pair;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileSystemUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.net.URL;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +40,9 @@ public class NameNodeController {
     @Value(value="${test-mode}")
     public boolean TEST_MODE;
 
+    @Autowired
+    private HttpServletRequest request;
+
     private DataNodeManager dataNodeManager = new DataNodeManager();
     private FileBlockManager fileBlockManager = new FileBlockManager();
     private FileTreeManager fileTreeManager = new FileTreeManager();
@@ -44,15 +52,22 @@ public class NameNodeController {
     private static String downloadedFileDir = "tmp/downloadedFiles/";
 
 
-    @GetMapping("/allFiles")
-    public Map<String, List<String>> listSystem() {
+    @GetMapping("/fileOnNodes")
+    public Map<String, List<String>> listFileOnNodes() {
         return fileBlockManager.listAll();
     }
 
-    @GetMapping("/{filename:.+}")
+    @GetMapping("/allFiles")
+    public Map<String, Long> listFileSystem() {
+        return fileTreeManager.list();
+    }
+
+    @GetMapping("/**")
     @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+    public ResponseEntity<Resource> serveFile() {
         try {
+            String fileNameWithPath = request.getRequestURI().replaceFirst("/", "");
+            String filename = fileNameWithPath.replace("/", "_");
             // save downloaded file in a temp path
             File downloadFile = new File(downloadedFileDir + filename);
             downloadFile.createNewFile();
@@ -60,7 +75,7 @@ public class NameNodeController {
             FileChannel downloadFileChannel = new FileOutputStream(downloadFile).getChannel();
 
             // get file blocks and append them to the downloaded file
-            long numBlocks = fileTreeManager.getNumBlocks(filename);
+            long numBlocks = fileTreeManager.getNumBlocks(fileNameWithPath);
             for (int blockIndex = 0; blockIndex < numBlocks; blockIndex ++) {
                 List<String> dataNodeURLS = fileBlockManager.getDataNodeURL(filename, blockIndex);
                 String blockedFileName = blockedFileName(filename, blockIndex);
@@ -86,11 +101,13 @@ public class NameNodeController {
 
     }
 
-    @PostMapping("/")
+    @PutMapping("/**")
     public String handleFileUpload(@RequestParam("file") MultipartFile file) {
         try {
-            String fileName = file.getOriginalFilename();
-            if (fileTreeManager.contain(fileName)) {
+            String dirPath = request.getRequestURI().replaceFirst("/", "");
+            String fileNameWithPath = dirPath + file.getOriginalFilename();
+            String fileName = dirPath.replace('/', '_') + file.getOriginalFilename();
+            if (fileTreeManager.contain(fileNameWithPath)) {
                 System.err.println("File already exists.");
                 return "File already exists.";
             }
@@ -116,7 +133,7 @@ public class NameNodeController {
 
                 slicedFile.delete();
             }
-            fileTreeManager.addFile(fileName, numBlocks);
+            fileTreeManager.addFile(fileNameWithPath, numBlocks, numBytes);
             return "success";
         } catch (IOException e) {
             e.printStackTrace();
@@ -216,10 +233,15 @@ public class NameNodeController {
         }
     }
 
-    @DeleteMapping("/{filename:.+}")
+    @DeleteMapping("/**")
     @ResponseBody
-    public String deleteFile(@PathVariable String filename) {
-        long numBlocks = fileTreeManager.getNumBlocks(filename);
+    public String deleteFile() {
+        String fileNameWithPath = request.getRequestURI().replaceFirst("/", "");
+        String filename = fileNameWithPath.replace("/", "_");
+        if (!fileTreeManager.contain(fileNameWithPath)) {
+            return "File doesn't exist";
+        }
+        long numBlocks = fileTreeManager.getNumBlocks(fileNameWithPath);
         for (int blockIndex = 0; blockIndex < numBlocks; blockIndex ++) {
             List<String> dataNodeURLS = fileBlockManager.getDataNodeURL(filename, blockIndex);
             for (String dataNodeURL : dataNodeURLS) {
@@ -233,7 +255,7 @@ public class NameNodeController {
             fileBlockManager.removeFileBlock(filename, blockIndex);
             loadBalanceManager.removeFile(blockedFileName(filename, blockIndex));
         }
-        fileTreeManager.deleteFile(filename);
+        fileTreeManager.deleteFile(fileNameWithPath);
         return "success";
     }
 
@@ -354,6 +376,17 @@ public class NameNodeController {
             fileBlockManager.show();
             loadBalanceManager.show();
             System.err.println();
+        }
+    }
+
+    private void emptyTmpDir() {
+        try {
+            FileSystemUtils.deleteRecursively(Paths.get(blockFileDir).toFile());
+            Files.createDirectories(Paths.get(blockFileDir));
+            FileSystemUtils.deleteRecursively(Paths.get(downloadedFileDir).toFile());
+            Files.createDirectories(Paths.get(downloadedFileDir));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     /**

@@ -3,39 +3,43 @@ package com.alex.sa.mdfs.namenode;
 import javafx.util.Pair;
 
 import javax.swing.*;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class FileTreeManager {
     private class FileTreeNode {
         boolean isDir;
         String name;
         long numBlocks;
+        long size;
         List<FileTreeNode> children = new LinkedList<>();
 
-        public FileTreeNode(boolean isDir, String name, long numBlocks) {
+        public FileTreeNode(boolean isDir, String name, long numBlocks, long size) {
             this.isDir = isDir;
             this.name = name;
             this.numBlocks = numBlocks;
+            this.size = size;
         }
     }
 
-    FileTreeNode root = new FileTreeNode(true, "root", 0);
+    FileTreeNode root = new FileTreeNode(true, "root", 0, 0);
 
-    public void addFile(String path, long numBlocks) {
+    public void addFile(String path, long numBlocks, long size) {
         FileTreeNode node = root;
         String[] dirs = path.split("/");
         int count = dirs.length;
         for (int i = 0; i < count - 1; i ++) {
             FileTreeNode next = null;
             for (FileTreeNode child : node.children) {
-                if (child.isDir && child.name.equals(dirs)) {
+                if (child.isDir && child.name.equals(dirs[i])) {
                     next = child;
                     break;
                 }
             }
             if (next == null) {
-                FileTreeNode newDirNode = new FileTreeNode(true, dirs[i], 0);
+                FileTreeNode newDirNode = new FileTreeNode(true, dirs[i], 0, 0);
                 node.children.add(newDirNode);
                 next = newDirNode;
             }
@@ -43,7 +47,7 @@ public class FileTreeManager {
         }
 
         String fileName = dirs[count - 1];
-        node.children.add(new FileTreeNode(false, fileName, numBlocks));
+        node.children.add(new FileTreeNode(false, fileName, numBlocks, size));
     }
 
     public long getNumBlocks(String path) {
@@ -82,7 +86,7 @@ public class FileTreeManager {
     public boolean contain(String path) {
         Pair<FileTreeNode, String> parentNode_fileName = walk(path);
         if (parentNode_fileName == null) {
-            return true;
+            return false;
         }
         FileTreeNode node = parentNode_fileName.getKey();
         String fileName = parentNode_fileName.getValue();
@@ -115,5 +119,25 @@ public class FileTreeManager {
 
         String fileName = dirs[count - 1];
         return new Pair<>(node, fileName);
+    }
+
+    public Map<String, Long> list() {
+        Map<String, Long> fileWithPath_fileSize = new HashMap<>();
+        FileTreeNode node = root;
+        for (FileTreeNode fileTreeNode : node.children) {
+            addNodeToMap(fileTreeNode, "", fileWithPath_fileSize);
+        }
+        return fileWithPath_fileSize;
+    }
+
+    private void addNodeToMap(FileTreeNode node, String path, Map<String, Long> fileWithPath_fileSize) {
+        if (!node.isDir) {
+            fileWithPath_fileSize.put(path + node.name, node.size);
+        } else {
+            path += node.name + "/";
+            for (FileTreeNode fileTreeNode : node.children) {
+                addNodeToMap(fileTreeNode, path, fileWithPath_fileSize);
+            }
+        }
     }
 }
