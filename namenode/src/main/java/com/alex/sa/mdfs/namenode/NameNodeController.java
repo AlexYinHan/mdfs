@@ -175,13 +175,14 @@ public class NameNodeController {
 
             // write into a byte array
             byte[] bytes = new byte[BLOCK_SIZE];
-            ByteArrayOutputStream out=new ByteArrayOutputStream();
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
             int n, blockSize = 0;
             while ( (n=inputStream.read(bytes)) != -1) {
                 out.write(bytes,0,n);
                 blockSize += n;
             }
 
+            bytes = out.toByteArray();
             // write into a file
             File file = writeFile(fileName, bytes, blockSize);
 
