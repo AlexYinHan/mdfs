@@ -39,13 +39,17 @@ $ mvn spring-boot:run -Dserver.port=8083
 
 ## 运行截图
 上传若干个文件后：
+
 ![所有文件](ScreenShots/all_files.png)
 
 文件块的分布：
+
 ![blocks](ScreenShots/blocks.png)
 
 增加一个结点(8084端口):
+
 ![blocks2](ScreenShots/blocks2.png)
 
 删除一个结点(8082端口):
+
 ![blocks3](ScreenShots/blocks3.png)
