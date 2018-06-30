@@ -54,6 +54,13 @@ public class LoadBalanceManager {
         updateFileMap();
     }
 
+    public void removeFile(String fileName) {
+        for (HashNode node : hashNodes) {
+            node.fileName_hashcodes.remove(fileName);
+        }
+        updateFileMap();
+    }
+
     private int stringHashCode(String URL) {
         //  FNV1_32_HASH algorithm
         int p = 16777619;
@@ -248,7 +255,7 @@ public class LoadBalanceManager {
         for (HashNode node : hashNodes) {
             if (node.fileName_hashcodes.size() > 0) {
                 for (String file : node.fileName_hashcodes.keySet()) {
-                    System.out.println(file + "," + node.actualURL);
+                    System.out.println("\t\t" + file + "," + node.actualURL);
                 }
             }
         }
@@ -266,6 +273,11 @@ public class LoadBalanceManager {
 
             }
         }
+    }
+
+    public void show() {
+        System.out.println("Load balance manager:");
+        showFiles();
     }
 
 }

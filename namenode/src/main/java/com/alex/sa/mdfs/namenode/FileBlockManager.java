@@ -50,4 +50,14 @@ public class FileBlockManager {
     private String getBlockName(String fileName, long blockIndex) {
         return fileName + "#" + blockIndex;
     }
+
+    public void show() {
+        System.out.println("File block manager:");
+        for (Map.Entry<String, List<String>> e : fileBlock_dataNodeURL.entrySet()) {
+            System.out.println(e.getKey());
+            for (String nodeURL : e.getValue()) {
+                System.out.println("\t\t" + nodeURL);
+            }
+        }
+    }
 }

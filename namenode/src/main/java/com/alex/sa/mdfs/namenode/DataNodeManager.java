@@ -54,4 +54,14 @@ public class DataNodeManager {
         URL_dataNodeInfos.get(oldURL).removeBlock(fileName, blockIndex);
         URL_dataNodeInfos.get(newURL).addBlock(fileName, blockIndex);
     }
+
+    public void show() {
+        System.out.println("Data node manager:");
+        for (Map.Entry<String, DataNodeInfo> e : URL_dataNodeInfos.entrySet()) {
+            System.out.println(e.getKey());
+            for (Pair<String, Long> p: e.getValue().getFileBlocks()) {
+                System.out.println("\t\t" + p.getKey() + "#" + p.getValue());
+            }
+        }
+    }
 }

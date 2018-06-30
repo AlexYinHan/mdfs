@@ -32,8 +32,8 @@ public class NameNodeController {
     @Value(value="${load-balancer.num-visual-node}")
     public int VISUAL_NODE_NUM;
 
-//    @Value(value="${stand-alone}")
-//    public boolean STAND_ALONE;
+    @Value(value="${test-mode}")
+    public boolean TEST_MODE;
 
     private DataNodeManager dataNodeManager = new DataNodeManager();
     private FileBlockManager fileBlockManager = new FileBlockManager();
@@ -151,12 +151,23 @@ public class NameNodeController {
 
     private File getFileBlock(String dataNodeURL, String fileName) {
         try {
+            // down load file into a input stream
             String resourceURL = dataNodeURL + "files/" + fileName;
             UrlResource urlResource = new UrlResource(new URL(resourceURL));
             InputStream inputStream = urlResource.getInputStream();
+
+            // write into a byte array
             byte[] bytes = new byte[BLOCK_SIZE];
-            int blockSize = inputStream.read(bytes);
-            File file = writeFile(fileName, bytes);
+            ByteArrayOutputStream out=new ByteArrayOutputStream();
+            int n, blockSize = 0;
+            while ( (n=inputStream.read(bytes)) != -1) {
+                out.write(bytes,0,n);
+                blockSize += n;
+            }
+
+            // write into a file
+            File file = writeFile(fileName, bytes, blockSize);
+
             return file;
         } catch (Exception e) {
             e.printStackTrace();
@@ -179,11 +190,11 @@ public class NameNodeController {
         Long blockIndex = Long.parseLong(blockedFileName.substring(0, splitIndex));
         return new Pair<>(fileName, blockIndex);
     }
-    private File writeFile(String fileName, byte[] blockByteArray) {
+    private File writeFile(String fileName, byte[] blockByteArray, int length) {
         try {
             File file = new File(blockFileDir + fileName);
             FileOutputStream fos = new FileOutputStream(file);
-            fos.write(blockByteArray, 0, blockByteArray.length);
+            fos.write(blockByteArray, 0, length);
             fos.close();
             return file;
         } catch (IOException e) {
@@ -220,6 +231,7 @@ public class NameNodeController {
             }
             dataNodeManager.removeBlock(filename, blockIndex);
             fileBlockManager.removeFileBlock(filename, blockIndex);
+            loadBalanceManager.removeFile(blockedFileName(filename, blockIndex));
         }
         fileTreeManager.deleteFile(filename);
         return "success";
@@ -243,6 +255,7 @@ public class NameNodeController {
             } else {
                 System.err.println("Data node at " + dataNodeUrl +" was removed before.");
             }
+            showManagers();
         }
     }
 
@@ -264,6 +277,7 @@ public class NameNodeController {
                 transferBlocksToNewNode(dataNodeUrl);
                 System.err.println("Data node at " + dataNodeUrl + " registered.");
             }
+            showManagers();
         }
     }
 
@@ -334,6 +348,14 @@ public class NameNodeController {
         }
     }
 
+    private void showManagers() {
+        if (TEST_MODE) {
+            dataNodeManager.show();
+            fileBlockManager.show();
+            loadBalanceManager.show();
+            System.err.println();
+        }
+    }
     /**
      * one pulse from a data node
      * @param event

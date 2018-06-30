@@ -17,4 +17,4 @@ block:
   default-replicas: 2
 load-balancer:
   num-visual-node: 31
-
+test-mode: true
