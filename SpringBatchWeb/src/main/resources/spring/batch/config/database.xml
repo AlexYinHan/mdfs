@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/jdbc 
+		http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
+
+    <!-- connect to H2 database -->
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="org/springframework/batch/core/schema-drop-h2.sql"/>
+        <jdbc:script location="org/springframework/batch/core/schema-h2.sql"/>
+    </jdbc:embedded-database>
+
+    <bean id="transactionManager"
+          class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
+
+</beans>

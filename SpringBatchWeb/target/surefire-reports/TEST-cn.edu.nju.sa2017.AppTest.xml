@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="cn.edu.nju.sa2017.AppTest" time="1.395" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2017.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="D:\JDK\jre\bin"/>
+    <property name="java.vm.version" value="25.144-b01"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\IdeaProjects\sa2017\springbatch-web"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\IdeaProjects\sa2017\springbatch-web"/>
+    <property name="java.runtime.version" value="1.8.0_144-b01"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="D:\JDK\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\asus1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="D:\IntelliJ IDEA 2017.2\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\JDK\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;G:\Develop\CUDA-9.1\bin;G:\Develop\CUDA-9.1\libnvvp;D:\Anaconda\Scripts\;D:\Anaconda\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;D:\Guitar Pro 6\ultraedit;C:\Users\asus1\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;D:\Maven\apache-maven-3.5.2\bin;D:\QuickTime\QTSystem\;D:\OpenCV\opencv\build\x64\vc14\bin;D:\CMake\bin;D:\OpenCV\opencv-2.4.11\build\install\bin;D:\Qt\Qt5.8.0\Tools\mingw530_32\bin;D:\OpenCV\opencv-mingw-build\bin;D:\Qt\Qt5.8.0\5.8\mingw53_32\bin;D:\PCL\PCL-1.8.1\bin;D:\PCL\PCL-1.8.1\3rdParty\FLANN\bin;D:\PCL\PCL-1.8.1\3rdParty\VTK\bin;D:\PCL\PCL-1.8.1\3rdParty\Qhull\bin;D:\PCL\PCL-1.8.1\3rdParty\OpenNI2\Tools;D:\PCL\OpenNI\Redist;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Java\JDK\bin;D:\Java\JDK\jre\bin;;D:\Docker Toolbox;C:\Users\asus1\AppData\Local\Microsoft\WindowsApps;D:\VSCode\Microsoft VS Code\bin;D:\texlive\2017\bin\win32;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\asus1"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="asus1"/>
+    <property name="java.class.path" value="D:\IntelliJ IDEA 2017.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.5.2.jar;D:\IntelliJ IDEA 2017.2\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="D:\JDK\jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2017.2 test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_144"/>
+    <property name="java.ext.dirs" value="D:\JDK\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="D:\JDK\jre\lib\resources.jar;D:\JDK\jre\lib\rt.jar;D:\JDK\jre\lib\sunrsasign.jar;D:\JDK\jre\lib\jsse.jar;D:\JDK\jre\lib\jce.jar;D:\JDK\jre\lib\charsets.jar;D:\JDK\jre\lib\jfr.jar;D:\JDK\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\IntelliJ IDEA 2017.2\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="cn.edu.nju.sa2017.AppTest" name="launchJob" time="1.395"/>
+</testsuite>
