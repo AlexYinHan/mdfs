@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="datanode" />
+        <module name="mdfs" />
+        <module name="namenode" />
+        <module name="spring-batch-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="datanode" target="1.8" />
+      <module name="eurekeserver" target="1.8" />
+      <module name="mdfs" target="1.5" />
+      <module name="namenode" target="1.8" />
+      <module name="spring-batch-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

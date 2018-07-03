@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/datanode/datanode.iml" filepath="$PROJECT_DIR$/datanode/datanode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datanode/datanode.iml" filepath="$PROJECT_DIR$/datanode/datanode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mdfs.iml" filepath="$PROJECT_DIR$/mdfs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/namenode/namenode.iml" filepath="$PROJECT_DIR$/namenode/namenode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/namenode/namenode.iml" filepath="$PROJECT_DIR$/namenode/namenode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-batch-web/spring-batch-web.iml" filepath="$PROJECT_DIR$/spring-batch-web/spring-batch-web.iml" />
+    </modules>
+  </component>
+</project>
